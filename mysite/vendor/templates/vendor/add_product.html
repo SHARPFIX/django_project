@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Add Product | KashKart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/add_product.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="add-product">
+  <div class="form-container">
+    <h2>Add New Product</h2>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" name="product_name" placeholder="Product Name" required>
+      <textarea name="description" placeholder="Product Description" required></textarea>
+      <input type="number" name="price" placeholder="Price (₹)" required>
+      <input type="number" name="stock" placeholder="Stock Quantity" required>
+ <select name="category" required>
+    <option value="">-- Select Category --</option>
+    {% for cat in categories %}
+        <option value="{{ cat.id }}">{{ cat.name }}</option>
+    {% endfor %}
+</select>
+
+
+
+      <label>Upload Images (at least 1 required)</label>
+      <input type="file" name="image1" accept="image/*" required>
+      <input type="file" name="image2" accept="image/*">
+      <input type="file" name="image3" accept="image/*">
+      <input type="file" name="image4" accept="image/*">
+
+      <button type="submit">Add Product</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

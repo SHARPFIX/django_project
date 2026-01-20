@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}My Products | KashKart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/my_products.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="my-products">
+  <h2>My Products</h2>
+
+  {% if products %}
+    <div class="products-grid">
+      {% for product in products %}
+        <div class="product-card">
+          <img src="{{ product.image1.url }}" alt="{{ product.product_name }}">
+          <h3>{{ product.product_name }}</h3>
+          <p class="desc">{{ product.description|truncatechars:100 }}</p>
+          <p class="price">₹{{ product.price }}</p>
+          <p class="stock">Stock: {{ product.stock }}</p>
+          <p class="date">Added: {{ product.created_at|date:"M d, Y" }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="no-products">You haven’t added any products yet.</p>
+  {% endif %}
+</section>
+{% endblock %}

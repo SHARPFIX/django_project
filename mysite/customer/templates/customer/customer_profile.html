@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'customer/css/customer_profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+  <h2>My Profile</h2>
+
+  <div class="profile-card">
+    <p><strong>Username:</strong> {{ request.user.username }}</p>
+    <p><strong>Email:</strong> {{ request.user.email }}</p>
+    <p><strong>Name:</strong> {{ customer.full_name }}</p>
+    <p><strong>Phone:</strong> {{ customer.phone }}</p>
+    <p><strong>City:</strong> {{ customer.city }}</p>
+    <p><strong>Postal Code:</strong> {{ customer.postal_code }}</p>
+    <p><strong>Address:</strong> {{ customer.address }}</p>
+
+    <a href="{% url 'customer_logout' %}">
+      <button class="logout-btn">Logout</button>
+    </a>
+  </div>
+</div>
+{% endblock %}

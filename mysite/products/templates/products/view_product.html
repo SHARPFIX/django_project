@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}{{ product.product_name }} | KashKart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/view_product.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="product-view">
+
+    <!-- Left: Images -->
+    <div class="image-section">
+        <img id="mainImage" src="{{ product.image1.url }}" class="main-image">
+
+        <div class="thumbnails">
+            {% if product.image1 %}
+                <img src="{{ product.image1.url }}" onclick="changeImage(this)">
+            {% endif %}
+            {% if product.image2 %}
+                <img src="{{ product.image2.url }}" onclick="changeImage(this)">
+            {% endif %}
+            {% if product.image3 %}
+                <img src="{{ product.image3.url }}" onclick="changeImage(this)">
+            {% endif %}
+            {% if product.image4 %}
+                <img src="{{ product.image4.url }}" onclick="changeImage(this)">
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Right: Details -->
+    <div class="details-section">
+
+        <h2>{{ product.product_name }}</h2>
+        <p class="category">Category: {{ product.category.name }}</p>
+
+        <p class="price">₹{{ product.price }}</p>
+
+        <p class="description">
+            {{ product.description }}
+        </p>
+
+        {% if product.stock > 0 %}
+            <p class="stock in-stock">In Stock ({{ product.stock }})</p>
+        {% else %}
+            <p class="stock out-stock">Out of Stock</p>
+        {% endif %}
+
+        <div class="buttons">
+    <a href="{% url 'buy_now' product.id %}" class="buy-btn">Buy Now</a>
+    <a href="{% url 'add_to_cart' product.id %}" class="cart-btn">Add to Cart</a>
+</div>
+
+
+    </div>
+
+</div>
+
+<script>
+    function changeImage(img) {
+        document.getElementById("mainImage").src = img.src;
+    }
+</script>
+
+{% endblock %}

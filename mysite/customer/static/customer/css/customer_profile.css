@@ -1,0 +1,68 @@
+/* ======= Profile Page Styling ======= */
+
+body {
+    background: #f5f7fa;
+    font-family: Arial, sans-serif;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* ======= Profile Card ======= */
+
+.profile-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-card p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #444;
+}
+
+.profile-card strong {
+    color: #000;
+}
+
+/* ======= Logout Button ======= */
+
+.logout-btn {
+    width: 100%;
+    background: #e63946;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #d62828;
+}
+
+/* ======= Responsive ======= */
+
+@media (max-width: 480px) {
+    .profile-card {
+        padding: 20px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+}

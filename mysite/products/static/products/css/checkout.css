@@ -1,0 +1,56 @@
+.checkout-container {
+  display: flex;
+  gap: 40px;
+  width: 90%;
+  margin: 40px auto;
+}
+
+.checkout-left, .checkout-right {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.checkout-left {
+  width: 60%;
+}
+
+.checkout-right {
+  width: 35%;
+}
+
+.checkout-left input,
+.checkout-left textarea,
+.checkout-left select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.summary-list {
+  list-style: none;
+  padding: 0;
+}
+
+.summary-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.place-order-btn {
+  background: #06b6d4;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.place-order-btn:hover {
+  background: #0891b2;
+}

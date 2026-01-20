@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}My Dashboard | KashKart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'customer/css/customer_dashboard.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<section class="dashboard">
+  <div class="dashboard-container">
+    <h2>Welcome, {{ request.user.username }}!</h2>
+    <p>Here’s your shopping dashboard — manage orders, view history, and explore more products.</p>
+
+    <div class="dashboard-actions">
+      <a href="#"><button>🛍 My Orders</button></a>
+      <a href="#"><button>❤️ Wishlist</button></a>
+      <a href="{% url 'customer_profile' %}"><button>⚙️ Account Settings</button></a>
+      <a href="{% url 'customer_logout' %}"><button class="logout-btn">🚪 Logout</button></a>
+    </div>
+  </div>
+</section>
+{% endblock %}

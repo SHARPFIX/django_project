@@ -1,0 +1,99 @@
+/* ========== Customer Dashboard Styles ========== */
+
+body {
+  background: #f8fafc;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Dashboard Section Wrapper */
+.dashboard {
+  padding: 40px 5%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Main Dashboard Box */
+.dashboard-container {
+  width: 100%;
+  max-width: 750px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.dashboard-container h2 {
+  font-size: 26px;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.dashboard-container p {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* Buttons Section */
+.dashboard-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.dashboard-actions a {
+  text-decoration: none;
+}
+
+/* Buttons */
+.dashboard-actions button {
+  background: #0ea5e9;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 150px;
+  transition: 0.3s ease-in-out;
+}
+
+.dashboard-actions button:hover {
+  background: #0284c7;
+  transform: translateY(-2px);
+}
+
+/* Logout button special style */
+.logout-btn {
+  background: #ef4444 !important;
+}
+
+.logout-btn:hover {
+  background: #dc2626 !important;
+}
+
+/* Responsive for Tablets */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 30px;
+  }
+
+  .dashboard-actions button {
+    width: 100%;
+  }
+}
+
+/* Responsive for Mobile */
+@media (max-width: 480px) {
+  .dashboard-container h2 {
+    font-size: 22px;
+  }
+  
+  .dashboard-container p {
+    font-size: 13px;
+  }
+}

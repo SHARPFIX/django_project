@@ -1,0 +1,59 @@
+.sales-section {
+  padding: 40px 5%;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+.sales-section h2 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.sales-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.sales-table th, .sales-table td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+.sales-table th {
+  background: #0098c2;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.sales-table tr:hover {
+  background: #f1f5f9;
+}
+
+.status.pending {
+  color: #ff9800;
+}
+.status.shipped {
+  color: #2196f3;
+}
+.status.delivered {
+  color: #4caf50;
+}
+.status.cancelled {
+  color: #f44336;
+}
+
+.no-sales {
+  text-align: center;
+  color: #777;
+  font-size: 16px;
+  margin-top: 50px;
+}

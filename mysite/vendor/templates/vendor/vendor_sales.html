@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}My Sales | KashKart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/vendor_sales.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="sales-section">
+  <h2>My Sales</h2>
+
+  {% if sales %}
+    <table class="sales-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Buyer</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Status</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sale in sales %}
+        <tr>
+          <td>{{ sale.product.product_name }}</td>
+          <td>{{ sale.buyer.username|default:"Guest" }}</td>
+          <td>{{ sale.quantity }}</td>
+          <td>₹{{ sale.total_price }}</td>
+          <td class="status {{ sale.status|lower }}">{{ sale.status }}</td>
+          <td>{{ sale.sale_date|date:"M d, Y" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="no-sales">No sales recorded yet.</p>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}KashKart | Home{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>Welcome to KashKart</h1>
+  <p>Shop local, support local — Kashmir’s trusted online marketplace for authentic products.</p>
+  <button><a href="{%url 'products_list'%}">Explore Now</a></button>
+</section>
+
+<section class="categories">
+  <h2>Shop by Category</h2>
+  <div class="category-container">
+    <div class="category">
+      <img src="{% static 'images/handicrafts.jpg' %}" alt="Handicrafts">
+      <h3>Handicrafts</h3>
+    </div>
+    <div class="category">
+      <img src="{% static 'images/dryfruits.jpg' %}" alt="Dry Fruits">
+      <h3>Dry Fruits</h3>
+    </div>
+    <div class="category">
+      <img src="{% static 'images/clothing.jpg' %}" alt="Clothing">
+      <h3>Clothing</h3>
+    </div>
+  </div>
+</section>
+{% endblock %}

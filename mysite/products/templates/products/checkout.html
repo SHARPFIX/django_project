@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="checkout-container">
+
+    <h2>Checkout</h2>
+
+    <div class="checkout-flex">
+
+        <!-- LEFT: Delivery Form -->
+        <div class="checkout-left">
+
+            <!-- IMPORTANT: Correct action -->
+            <form method="POST" action="{% url 'place_order' %}">
+                {% csrf_token %}
+
+                <h3>Delivery Details</h3>
+
+                <label>Full Name</label>
+                <input type="text" name="full_name" value="{{ customer.full_name }}" required>
+
+                <label>Phone</label>
+                <input type="text" name="phone" value="{{ customer.phone }}" required>
+
+                <label>City</label>
+                <input type="text" name="city" value="{{ customer.city }}" required>
+
+                <label>Postal Code</label>
+                <input type="text" name="postal_code" value="{{ customer.postal_code }}" required>
+
+                <label>Address</label>
+                <textarea name="address" required>{{ customer.address }}</textarea>
+
+                <h3>Payment Method</h3>
+                <select name="payment_method" required>
+                    <option value="COD">Cash on Delivery</option>
+                    <option value="UPI">UPI</option>
+                    <option value="CARD">Credit/Debit Card</option>
+                </select>
+
+                <button type="submit" class="place-order-btn">
+                    Place Order
+                </button>
+            </form>
+
+        </div>
+
+        <!-- RIGHT: Order Summary -->
+        <div class="checkout-right">
+            <h3>Order Summary</h3>
+
+            <ul class="summary-list">
+                {% for item in items %}
+                <li>
+                    {{ item.product.product_name }} × {{ item.quantity }}
+                    <span>₹{{ item.product.price|floatformat:2 }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <div class="summary-total">
+                Total: <strong>₹{{ total }}</strong>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

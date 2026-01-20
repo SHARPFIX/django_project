@@ -1,0 +1,111 @@
+/* ===== Add Product Page Styling ===== */
+body {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Section Layout */
+.add-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 15px;
+}
+
+/* Form Container */
+.form-container {
+  background: #fff;
+  width: 100%;
+  max-width: 600px;
+  padding: 40px 35px;
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 25px;
+}
+
+/* Form Styling */
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #f9fafb;
+  transition: 0.3s ease;
+}
+
+.form-container textarea {
+  height: 100px;
+  resize: none;
+  font-family: inherit;
+}
+
+/* Focus effect */
+.form-container input:focus,
+.form-container textarea:focus {
+  border-color: #3b82f6;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.3);
+  outline: none;
+}
+
+/* Labels */
+.form-container label {
+  font-weight: 600;
+  color: #444;
+  margin-top: 10px;
+}
+
+/* File Inputs */
+.form-container input[type="file"] {
+  border: none;
+  background: none;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+/* Button */
+.form-container button {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 10px;
+}
+
+.form-container button:hover {
+  background: #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 30px 25px;
+  }
+
+  .form-container h2 {
+    font-size: 22px;
+  }
+}

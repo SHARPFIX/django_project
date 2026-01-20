@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Vendor Dashboard | KashKart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/vendor_dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="dashboard">
+  <div class="dashboard-header">
+    <h1>Welcome, {{ request.user.username }}</h1>
+    <p>Your Vendor ID: <span>{{ request.user.id }}</span></p>
+  </div>
+
+  <div class="dashboard-grid">
+    <a href="{% url 'add_product' %}" class="card">
+      <img src="{% static 'images/add_product.png' %}" alt="Add Product">
+      <h3>Add Product</h3>
+      <p>Add new items to your store.</p>
+    </a>
+
+    <a href="{% url 'my_products' %}" class="card">
+      <img src="{% static 'images/products.png' %}" alt="My Products">
+      <h3>My Products</h3>
+      <p>View and manage your products.</p>
+    </a>
+
+    <a href="{% url 'vendor_sales' %}" class="card">
+      <img src="{% static 'images/sales.png' %}" alt="Sales">
+      <h3>Sales</h3>
+      <p>Track your total sales and performance.</p>
+    </a>
+
+    <a href="{% url 'vendor_logout' %}" class="card logout-card">
+      <img src="{% static 'images/logout.png' %}" alt="Logout">
+      <h3>Logout</h3>
+      <p>Log out of your vendor account.</p>
+    </a>
+  </div>
+</section>
+{% endblock %}

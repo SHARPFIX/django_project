@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Products | KashKart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/product_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="product-page">
+
+    <h2>Browse Products</h2>
+
+    <form method="GET" class="category-filter">
+       <select name="category" onchange="this.form.submit()">
+    <option value="">All Categories</option>
+
+    {% for cat in categories %}
+       <option value="{{ cat.id }}" {% if selected == cat.id %}selected{% endif %}>
+    {{ cat.name }}
+</option>
+
+    {% endfor %}
+</select>
+
+    </form>
+
+    <div class="product-grid">
+
+        {% for product in products %}
+        <div class="product-card">
+
+            <img src="{{ product.image1.url }}" alt="{{ product.product_name }}">
+
+            <h3>{{ product.product_name }}</h3>
+            <p class="price">₹{{ product.price }}</p>
+             <a href="{% url 'view_product' product.id %}" class="view-btn">
+   View Product
+</a>
+
+        </div>
+        {% endfor %}
+
+        {% if products|length == 0 %}
+        <p class="no-products">No products available in this category.</p>
+        {% endif %}
+
+    </div>
+
+</div>
+{% endblock %}

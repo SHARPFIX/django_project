@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Customer Signup | KashKart{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'customer/css/customer_auth.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+  <div class="auth-left">
+    <h2>Welcome Back!</h2>
+    <p>Already have an account? Log in to continue shopping with KashKart.</p>
+    <a href="{% url 'customer_login' %}">
+      <button class="switch-btn">Login</button>
+    </a>
+  </div>
+
+  <div class="auth-right">
+    <h2>Create Customer Account</h2>
+    <p>Fill out the form below to start shopping.</p>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+      <input type="text" name="full_name" placeholder="Full Name" required>
+      <input type="text" name="phone" placeholder="Phone Number" required>
+      <input type="text" name="city" placeholder="City" required>
+      <input type="text" name="postal_code" placeholder="Postal Code" required>
+      <textarea name="address" placeholder="Full Address" required></textarea>
+
+      <button type="submit">Create Account</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

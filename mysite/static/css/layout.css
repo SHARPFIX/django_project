@@ -1,0 +1,103 @@
+/* =========================================================
+   FIXED NAVBAR (FULLY RESPONSIVE + DROPDOWN WORKS)
+========================================================= */
+
+header {
+    background: linear-gradient(to right, #1a73e8, #4ba3ff);
+    padding: 14px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.18);
+}
+
+header .logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Desktop Navbar */
+nav {
+    position: relative;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+nav ul li a:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* Mobile Menu Icon */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* ===============================
+   MOBILE NAVIGATION (FIXED)
+================================== */
+@media (max-width: 768px) {
+
+    /* Show Menu icon */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Hide original navbar */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(to bottom, #1a73e8, #4ba3ff);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 210px;
+        padding: 12px 0;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.20);
+        animation: dropdown 0.3s ease-out;
+    }
+
+    /* When active (menu clicked) */
+    #navbar.active ul {
+        display: flex !important;
+    }
+
+    nav ul li {
+        text-align: left;
+        padding: 10px 18px;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+    }
+
+}
+
+/* Smooth dropdown animation */
+@keyframes dropdown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,20 @@
+.order-success {
+    width: 60%;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.order-success h2 {
+    font-size: 30px;
+    color: #0f9d58;
+}
+
+.back-btn {
+    padding: 12px 20px;
+    background: #06b6d4;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 20px;
+}
